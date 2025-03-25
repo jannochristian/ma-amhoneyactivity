@@ -4,57 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
-    <style>
-        body {
-            background-image: url('111222.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 400px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-        h2 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-        img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid rgb(17, 148, 255);
-            margin-bottom: 15px;
-        }
-        p {
-            font-size: 16px;
-            color: #555;
-        }
-        button {
-            background: #ff4b2b;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 16px;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-        button:hover {
-            background: #d83a20;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -65,6 +15,17 @@
     <p><strong>Birthday:</strong> <span id="displayBirthday"></span></p>
     <p><strong>About Me:</strong> <span id="displayAboutMe"></span></p>
     <p><strong>Favorite Quote:</strong> <span id="displayQuote"></span></p>
+    
+    <div class="post-container">
+            <h3>Make a Post</h3>
+            <input type="text" id="postInput" placeholder="Write something...">
+            <button onclick="addPost()">Post</button>
+        </div>
+
+        <!-- Section to display posts -->
+        <h3>My Posts</h3>
+        <div id="posts-section"></div>
+    </div>
 </div>
 
 <script src="script.js"></script>

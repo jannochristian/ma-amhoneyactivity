@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function playClickSound() {
-    let audio = new Audio("Clicking - Sound Effect.mp3"); // Make sure the file path is correct
+    let audio = new Audio("Click - Sound Effect (HD).mp3");
     audio.play();
 }
 
@@ -51,3 +51,45 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", playClickSound);
     });
 });
+
+function addPost() {
+    let postInput = document.getElementById("postInput");
+    let postText = postInput.value.trim();
+    
+    if (postText === "") {
+        alert("Post cannot be empty!");
+        return;
+    }
+
+    let postsSection = document.getElementById("posts-section");
+    let posts = postsSection.getElementsByClassName("post");
+
+    // Limit to 3 posts
+    if (posts.length >= 3) {
+        alert("You can only have 3 posts! Delete one to add a new post.");
+        return;
+    }
+
+    // Create new post element
+    let postDiv = document.createElement("div");
+    postDiv.classList.add("post");
+
+    let postContent = document.createElement("p");
+    postContent.textContent = postText;
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.onclick = function () {
+        postsSection.removeChild(postDiv);
+    };
+
+    postDiv.appendChild(postContent);
+    postDiv.appendChild(deleteBtn);
+
+    // Add new post at the top
+    postsSection.prepend(postDiv);
+
+    // Clear input field
+    postInput.value = "";
+}
